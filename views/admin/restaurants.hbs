@@ -1,11 +1,10 @@
-{{> admin-header}}
-<br>
+{{> admin-header route='restaurants'}}
 <a href='/admin/restaurants/create'>
-  <button type="button" class="btn btn-primary mt-3">New Restaurant</button>
+  <button type="button" class="btn btn-primary">New Restaurant</button>
 </a>
 <br />
 <br />
-<table class="table align-middle mb-5">
+<table class="table align-middle">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -39,3 +38,6 @@
     </tr>
     {{/each}}
   </tbody>
+</table>
+<br />
+<br />
