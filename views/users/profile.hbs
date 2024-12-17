@@ -7,33 +7,65 @@
     <div class="col-md-8">
       <p>{{user.name}}</p>
       <p>{{user.email}}</p>
-      <p>{{commentedRestaurants.length}} 已評論餐廳</p>
-      <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
-      <a class="btn btn-primary" href="/users/{{user.id}}/edit">Edit</a>
+      <span>{{followings.length}} followings (追蹤者)</span>
+      <br>
+      <span>{{followers.length}} followers (追隨者)</span>
+      <br>
+      <span>{{commentedRestaurants.length}} 已評論餐廳</span>
+      <br>
+      <span>{{favoritedRestaurants.length}} 收藏的餐廳</span>
+      <br>
+      <a class="btn btn-primary mt-3" href="/users/{{user.id}}/edit">Edit</a>
     </div>
   </div>
 </div>
 
-<div class="d-grid gap-3">
-  <div class="mt-2 p-2 bg-light border">
-    <p>{{commentedRestaurants.length}} 已評論餐廳</p>
-    {{#each commentedRestaurants}}
-    <a href="/restaurants/{{this.dataValues.restaurantId}}">
-      <img class="card-img-top img-fluid" src="{{this.dataValues.Restaurant.dataValues.image}}"
-        alt="{{this.dataValues.Restaurant.dataValues.image}}"
-        style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
-    </a>
-    {{/each}}
+<div class="row">
+  <div class="col-md-6 mt-2">
+    <div class="mt-2 p-2 bg-light border">
+      <p>{{followings.length}} followings (追蹤者)</p>
+      {{#each followings}}
+      <a href="/users/{{this.dataValues.id}}">
+        <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
+          alt="{{this.dataValues.image}}"
+          style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+      </a>
+      {{/each}}
+    </div>
+
+    <div class="mt-2 p-2 bg-light border">
+      <p>{{followers.length}} followers (追隨者)</p>
+      {{#each followers}}
+      <a href="/users/{{this.dataValues.id}}">
+        <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
+          alt="{{this.dataValues.image}}"
+          style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+      </a>
+      {{/each}}
+    </div>
   </div>
 
-  <div class="mt-2 p-2 bg-light border">
-    <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
-    {{#each favoritedRestaurants}}
-    <a href="/restaurants/{{this.dataValues.id}}">
-      <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
-        alt="{{this.dataValues.image}}"
-        style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
-    </a>
-    {{/each}}
+  <div class="col-md-6 mt-2">
+    <div class="mt-2 p-2 bg-light border">
+      <p>{{commentedRestaurants.length}} 已評論餐廳</p>
+      {{#each commentedRestaurants}}
+      <a href="/restaurants/{{this.dataValues.restaurantId}}">
+        <img class="card-img-top img-fluid" src="{{this.dataValues.Restaurant.dataValues.image}}"
+          alt="{{this.dataValues.Restaurant.dataValues.image}}"
+          style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+      </a>
+      {{/each}}
+    </div>
+
+    <div class="mt-2 p-2 bg-light border">
+      <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
+      {{#each favoritedRestaurants}}
+      <a href="/restaurants/{{this.dataValues.id}}">
+        <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
+          alt="{{this.dataValues.image}}"
+          style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+      </a>
+      {{/each}}
+    </div>
   </div>
 </div>

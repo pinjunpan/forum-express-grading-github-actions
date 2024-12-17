@@ -43,7 +43,9 @@ const userController = {
     return User.findByPk(req.params.id, {
       include: [
         { model: Comment, include: Restaurant },
-        { model: Restaurant, as: 'FavoritedRestaurants' }
+        { model: Restaurant, as: 'FavoritedRestaurants' },
+        { model: User, as: 'Followings' },
+        { model: User, as: 'Followers' }
       ]
     })
       .then(user => {
@@ -51,11 +53,15 @@ const userController = {
 
         const commentedRestaurants = user.Comments ? user.Comments : []
         const favoritedRestaurants = user.FavoritedRestaurants ? user.FavoritedRestaurants : []
+        const followings = user.Followings ? user.Followings : []
+        const followers = user.Followers ? user.Followers : []
 
         return res.render('users/profile', {
           user: user.toJSON(),
           commentedRestaurants,
-          favoritedRestaurants
+          favoritedRestaurants,
+          followings,
+          followers
         })
       })
       .catch(err => next(err))
