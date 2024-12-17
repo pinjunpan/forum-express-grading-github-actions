@@ -8,13 +8,14 @@
       <p>{{user.name}}</p>
       <p>{{user.email}}</p>
       <p>{{commentedRestaurants.length}} 已評論餐廳</p>
+      <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
       <a class="btn btn-primary" href="/users/{{user.id}}/edit">Edit</a>
     </div>
   </div>
 </div>
 
 <div class="d-grid gap-3">
-  <div class="mt-5 p-2 bg-light border">
+  <div class="mt-2 p-2 bg-light border">
     <p>{{commentedRestaurants.length}} 已評論餐廳</p>
     {{#each commentedRestaurants}}
     <a href="/restaurants/{{this.dataValues.restaurantId}}">
@@ -24,5 +25,15 @@
     </a>
     {{/each}}
   </div>
-</div>
 
+  <div class="mt-2 p-2 bg-light border">
+    <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
+    {{#each favoritedRestaurants}}
+    <a href="/restaurants/{{this.dataValues.id}}">
+      <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
+        alt="{{this.dataValues.image}}"
+        style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+    </a>
+    {{/each}}
+  </div>
+</div>
