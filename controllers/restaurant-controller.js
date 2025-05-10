@@ -114,12 +114,14 @@ const restaurantController = {
   },
   getTopRestaurants: (req, res, next) => {
     return Restaurant.findAll({
-      include: [{ model: User, as: 'FavoritedUsers' }]
+      include: [{ model: User, as: 'FavoritedUsers' }],
+      raw: true,
+      nest: true
     })
       .then(restaurants => {
         restaurants = restaurants.map(r => ({
-          ...r.dataValues,
-          description: r.dataValues.description.substring(0, 50),
+          ...r,
+          description: r.description ? r.description.substring(0, 50) : '',
           favoritedCount: r.FavoritedUsers.length,
           isFavorited: req.user && req.user.FavoritedRestaurants.map(fr => fr.id).includes(r.id)
         }))
