@@ -1,9 +1,10 @@
 const { Restaurant, Category, Comment, User } = require('../models')
 const { getOffset, getPagination } = require('../helpers/pagination-helper')
 
+const DEFAULT_DESCRIPTION_LENGTH = 50
+
 const restaurantController = {
   getRestaurants: (req, res, next) => {
-    const DEFAULT_DESCRIPTION_LENGTH = 50
     const DEFAULT_LIMIT = 9
 
     const categoryId = Number(req.query.categoryId) || ''
@@ -105,7 +106,12 @@ const restaurantController = {
       })
     ])
       .then(([restaurants, comments]) => {
-        res.render('feeds', {
+        restaurants.map(r => ({
+          ...r,
+          description: r.description.length > DEFAULT_DESCRIPTION_LENGTH ? r.description.substring(0, DEFAULT_DESCRIPTION_LENGTH) + '...' : r.description
+        }))
+
+        return res.render('feeds', {
           restaurants,
           comments
         })
@@ -121,7 +127,7 @@ const restaurantController = {
       .then(restaurants => {
         restaurants = restaurants.map(r => ({
           ...r,
-          description: r.description ? r.description.substring(0, 50) : '',
+          description: r.description.length > DEFAULT_DESCRIPTION_LENGTH ? r.description.substring(0, DEFAULT_DESCRIPTION_LENGTH) + '...' : r.description,
           favoritedCount: r.FavoritedUsers.length,
           isFavorited: req.user && req.user.FavoritedRestaurants.map(fr => fr.id).includes(r.id)
         }))

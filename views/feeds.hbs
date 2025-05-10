@@ -12,8 +12,9 @@
         {{#each restaurants}}
         <div>
           <h4>
+            <img src="{{this.image}}" style="height: 240px; width: 100%; object-fit: cover;" class="mb-1" alt="{{this.name}}">
             <a class="link-primary" href="/restaurants/{{this.id}}">{{this.name}}</a>
-            <small class="fs-6">[{{this.Category.name}}]</small>
+            <a class="fs-6" href="/restaurants?categoryId={{this.Category.id}}">[{{this.Category.name}}]</a>
           </h4>
           <p class="my-4" style="white-space: break-spaces;">{{this.description}}</p>
           {{relativeTimeFromNow this.createdAt}}
