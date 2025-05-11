@@ -2,6 +2,10 @@
 const faker = require('faker')
 const axios = require('axios')
 
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const categories = await queryInterface.sequelize.query(
@@ -9,10 +13,9 @@ module.exports = {
       { type: queryInterface.sequelize.QueryTypes.SELECT }
     )
 
-    const API_KEY = 'IWl7rcJbJ7ZTQQX8FHEUyDSVl18fvOUiB1DPbx2Z5MAAdDvY6QJiMYeX'
     const { data } = await axios.get('https://api.pexels.com/v1/search', {
       headers: {
-        Authorization: API_KEY
+        Authorization: process.env.PEXELS_API_KEY
       },
       params: {
         query: 'restaurant',
