@@ -50,7 +50,7 @@
       <p>{{commentedRestaurants.length}} 已評論餐廳</p>
       {{#each commentedRestaurants}}
       <a href="/restaurants/{{this.dataValues.restaurantId}}">
-        <img class="card-img-top img-fluid" src="{{this.dataValues.Restaurant.dataValues.image}}"
+        <img class="card-img-top img-fluid m-2" src="{{this.dataValues.Restaurant.dataValues.image}}"
           alt="{{this.dataValues.Restaurant.dataValues.image}}"
           style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
       </a>
@@ -61,7 +61,7 @@
       <p>{{favoritedRestaurants.length}} 收藏的餐廳</p>
       {{#each favoritedRestaurants}}
       <a href="/restaurants/{{this.dataValues.id}}">
-        <img class="card-img-top img-fluid" src="{{this.dataValues.image}}"
+        <img class="card-img-top img-fluid m-2" src="{{this.dataValues.image}}"
           alt="{{this.dataValues.image}}"
           style="width: 100px; height: 100px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
       </a>

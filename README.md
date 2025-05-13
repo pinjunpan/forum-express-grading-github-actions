@@ -8,6 +8,7 @@ Create an application server using Node.js with Express and a database server us
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/feeds.png)
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/top.png)
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/top10.png)
+![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/profile.png)
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/admin.png)
 
 ## Features
@@ -42,15 +43,18 @@ Create an application server using Node.js with Express and a database server us
 - express 4.17.1
 - method-override 3.0.0
 - express-handlebars 5.3.3
+
 **MySQL 資料庫相關套件**
 - mysql2 2.3.0
 - sequelize 6.6.5
 - sequelize-cli 6.2.0
+
 **登入驗證相關套件**
 - express-session 1.18.1
 - passport 0.4.1
 - passport-local 1.0.0
 - bcryptjs 2.4.3
+
 **其他小工具**
 - axios" 1.9.0
 - dotenv 16.5.0
@@ -59,18 +63,19 @@ Create an application server using Node.js with Express and a database server us
 - dayjs 1.10.6
 - faker 5.5.3
 - Bootstrap 5.0.2
+
 **程式碼格式整理相關套件**
 - eslint 7.32.0
 - eslint-config-standard 16.0.3
 - eslint-plugin-import 2.23.4
 - eslint-plugin-node 11.1.0
 - eslint-plugin-promise 5.1.0
+
 **測試相關套件**
 - chai 4.3.4
 - mocha 9.1.1
 - sinon 11.1.2
 - supertest 6.1.6
-
 
 ### Initialize
 
@@ -84,8 +89,7 @@ cd forum-express
 git remote add upstream https://github.com/pinjunpan/forum-express-grading-github-actions.git
 ```
 
-3. 環境初始化，下載相關套件，設定資料庫
-需要與 config/config.json 一致
+3. 環境初始化，下載相關套件，設定資料庫，需要與 config/config.json 一致
 
 ```
 npm install
