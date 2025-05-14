@@ -22,6 +22,13 @@ router.post('/signup', userController.signUp)
 router.get('/signin', userController.signInPage)
 router.post('/signin', passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), userController.signIn)
 
+router.get('/signin/facebook', passport.authenticate('facebook', { scope: ['email'] }))
+router.get('/oauth/redirect/facebook', passport.authenticate('facebook', {
+  successRedirect: '/restaurants',
+  failureRedirect: '/signin',
+  failureMessage: true
+}))
+
 router.get('/logout', userController.logout)
 
 router.get('/restaurants/feeds', authenticated, restController.getFeeds)
