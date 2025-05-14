@@ -4,17 +4,15 @@
 Create an application server using Node.js with Express and a database server using MySQL in the local environment.
 
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/main.png)
-![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/restaurant.png)
-![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/feeds.png)
-![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/top.png)
-![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/top10.png)
+
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/profile.png)
+
 ![image](https://github.com/pinjunpan/forum-express-grading-github-actions/blob/main/public/images/admin.png)
 
 ## Features
 
 **前台**
-- 使用者可以註冊/登入/登出網站
+- 使用者可以註冊/登入/登出網站(自行輸入帳號密碼、Facebook 登入)
 - 使用者可以瀏覽所有餐廳和個別餐廳的詳細資訊
 - 使用者可以透過分類篩選餐廳
 - 使用者可以評論餐廳
@@ -53,6 +51,7 @@ Create an application server using Node.js with Express and a database server us
 - express-session 1.18.1
 - passport 0.4.1
 - passport-local 1.0.0
+- passport-facebook 3.0.0
 - bcryptjs 2.4.3
 
 **其他小工具**
@@ -122,3 +121,7 @@ http://localhost:3000
 * 第三組帳號沒有 admin 權限：
   * email: user2@example.com
   * password: 12345678
+
+## Authors
+
+[**Maxine Pan**](https://github.com/pinjunpan)
